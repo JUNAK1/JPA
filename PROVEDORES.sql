@@ -1,4 +1,4 @@
-/*DROP DATABASE proveedores;*/
+#DROP DATABASE proveedores;
 create database proveedores;
 use proveedores;
 
@@ -8,9 +8,10 @@ CREATE TABLE PERSONAS (
     apellido VARCHAR(100),
     fechaNacimiento DATE,
     tipoDocumento VARCHAR(2),
-    numeroDocumento VARCHAR(15)
+    numeroDocumento VARCHAR(15),
+     direccion VARCHAR(100)
 );
-insert into PERSONAS values(1,'s','d',null,'33','33');
+#insert into PERSONAS values(1,'s','d',null,'33','33');
 
 CREATE TABLE FACTURAS (
     idFactura BIGINT PRIMARY KEY,
@@ -20,14 +21,14 @@ CREATE TABLE FACTURAS (
     FOREIGN KEY (idCliente) REFERENCES PERSONAS(idPersona),
     FOREIGN KEY (idVendedor) REFERENCES PERSONAS(idPersona)
 );
-insert into FACTURAS values(1,null,1,1);
+#insert into FACTURAS values(1,null,1,1);
 
 CREATE TABLE PRODUCTOS(
 	idProductos BIGINT PRIMARY KEY,
     nombre VARCHAR(100),
     precioUnitario DECIMAL(6,3)
 );
-insert into PRODUCTOS values(1,null,1);
+#insert into PRODUCTOS values(1,null,1);
 CREATE TABLE DETALLES(
 	idDetalles BIGINT PRIMARY KEY,
     cantidad INT,
@@ -37,7 +38,7 @@ CREATE TABLE DETALLES(
 	FOREIGN KEY (idFactura) REFERENCES FACTURAS(idFactura),
     FOREIGN KEY (idProductos) REFERENCES PRODUCTOS(idProductos)
 );
-insert into DETALLES values(1,1,1,1,1);
+#insert into DETALLES values(1,1,1,1,1);
 
 CREATE TABLE PROVEEDOR_PRODUCTO(
 	idPersona BIGINT,
@@ -46,6 +47,7 @@ CREATE TABLE PROVEEDOR_PRODUCTO(
     FOREIGN KEY (idPersona) REFERENCES PERSONAS(idPersona),
     FOREIGN KEY (idProductos) REFERENCES PRODUCTOS(idProductos)
 );
+/*
 insert into PROVEEDOR_PRODUCTO values(1,1);
 select * from PERSONAS;
 select * from FACTURAS;
@@ -56,3 +58,4 @@ delete from FACTURAS where idFactura >0;
 delete from DETALLES where idDetalles > 0;
 delete from PROVEEDOR_PRODUCTO where idPersona > 0;
 delete from PRODUCTOS where idProductos > 0;
+*/

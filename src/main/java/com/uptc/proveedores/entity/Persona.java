@@ -21,7 +21,6 @@ public class Persona {
     private String tipoDocumento;
     @Column(name = "numeroDocumento")
     private String numeroDocumento;
-
     @Column(name = "direccion")
     private String direccion;
     /*M:M*/
@@ -44,7 +43,6 @@ public class Persona {
         this.numeroDocumento = numeroDocumento;
         this.direccion=direccion;
     }
-
     public Long getId() {
         return id;
     }
@@ -116,7 +114,6 @@ public class Persona {
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
-
 
     public String getDireccion() {
         return direccion;

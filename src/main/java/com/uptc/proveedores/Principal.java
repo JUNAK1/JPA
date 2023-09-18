@@ -19,7 +19,11 @@ public class Principal {
         em.persist();
         em.getTransaction().commit();*/
 
-
+        //insertarEnBaseDeDatos();
+        //facturasCliente(1L);
+        //productosProveedor(1L);
+        //obtenerTotalVentasVendedor(1L);
+        imprimirFactura(1L);
 
     }
 
@@ -41,7 +45,6 @@ public class Principal {
             subtotal= producto.getPrecioUnicatio()*detalle.getCantidad();
             totalVenta+=subtotal;
             System.out.println(producto.getId()+"           "+producto.getNombre()+"               "+detalle.getCantidad()+"                "+producto.getPrecioUnicatio()+"                "+subtotal);
-
         }
         System.out.println("                                                               TOTAL  "+ totalVenta);
         System.out.println("Atendido por: "+factura.getVendedor().getNombre()+" "+factura.getVendedor().getApellido());
@@ -70,12 +73,9 @@ public class Principal {
         System.out.println("El valor vendido por el vendedor "+idVendedor+ "fue: "+totalventas);
     }
     public static void productosProveedor(Long idproveedor){
-
-
         EntityManager em = PersistenceUtil.getEntityManager();
         Persona persona = em.find(Persona.class,idproveedor);
         System.out.println(persona.getProductos());
-
     }
     public static List<Factura> facturasCliente(Long idCliente){
         EntityManager em = PersistenceUtil.getEntityManager();
@@ -193,16 +193,13 @@ public class Principal {
         listaProovedores.add(persona2);
         listaProovedores.add(persona3);
         producto1.setListaProveedores(listaProovedores);
-
         List<Producto> listaProductos = new ArrayList<>();
         listaProductos.add(producto1);
         listaProductos.add(producto3);
         listaProductos.add(producto5);
         persona2.setProductos(listaProductos);
 
-
         //factura1.setFecha(new Date());
-
         em4.persist(detalle1);
         em4.persist(detalle2);
         em4.persist(detalle3);
@@ -211,8 +208,6 @@ public class Principal {
         em4.persist(detalle6);
         em4.persist(detalle7);
         em4.persist(detalle8);
-
-
         em4.getTransaction().commit();
 
     }

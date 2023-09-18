@@ -14,10 +14,10 @@ public class Factura {
     @Column(name = "fecha")
     private Date fecha;
 
-    @Column(name = "idCliente", insertable = false, updatable = false)
-    private Long idCliente;
-    @Column(name = "idVendedor", insertable = false, updatable = false)
-    private Long idvendedor;
+    //@Column(name = "idCliente", insertable = false, updatable = false)
+    //private Long idCliente;
+    //@Column(name = "idVendedor", insertable = false, updatable = false)
+    //private Long idvendedor;
 
     /*M:M*/
 
@@ -33,11 +33,11 @@ public class Factura {
     private List<Detalle> detalles;
     public Factura(){}
 
-    public Factura(Long id, Date fecha, Long idCliente, Long idvendedor) {
+    public Factura(Long id, Date fecha, Persona cliente, Persona vendedor) {
         this.id = id;
         this.fecha = fecha;
-        this.idCliente = idCliente;
-        this.idvendedor = idvendedor;
+        this.cliente = cliente;
+        this.vendedor = vendedor;
     }
 
     public Long getId() {
@@ -55,32 +55,40 @@ public class Factura {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public Long getIdCliente() {
-        return idCliente;
+
+    public Persona getCliente() {
+        return cliente;
     }
 
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Persona cliente) {
+        this.cliente = cliente;
     }
 
-    public Long getIdvendedor() {
-        return idvendedor;
+    public Persona getVendedor() {
+        return vendedor;
     }
 
-    public void setIdvendedor(Long idvendedor) {
-        this.idvendedor = idvendedor;
+    public void setVendedor(Persona vendedor) {
+        this.vendedor = vendedor;
     }
 
+    public List<Detalle> getDetalles() {
+        return detalles;
+    }
 
+    public void setDetalles(List<Detalle> detalles) {
+        this.detalles = detalles;
+    }
 
     @Override
     public String toString() {
         return "Factura{" +
                 "id=" + id +
                 ", fecha=" + fecha +
-                ", idCliente=" + idCliente +
-                ", idvendedor=" + idvendedor +
+                ", idCliente=" + cliente+
+                ", idvendedor=" + vendedor +
                 '}';
+    }
     }
 
 

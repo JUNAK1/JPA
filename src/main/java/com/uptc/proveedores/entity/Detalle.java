@@ -12,11 +12,11 @@ public class Detalle {
     private Long cantidad;
     @Column(name = "precioVenta")
     private Float precioVenta;
-    @Column(name = "idFactura",insertable = false,updatable = false)
-    private Long facturaId;
+    //@Column(name = "idFactura",insertable = false,updatable = false)
+    //private Long facturaId;
 
-    @Column(name = "idProductos",insertable = false,updatable = false)
-    private Long productosId;
+    //@Column(name = "idProductos",insertable = false,updatable = false)
+    //private Long productosId;
 
     /*MM*/
     @ManyToOne
@@ -27,13 +27,12 @@ public class Detalle {
     @JoinColumn(name="idProductos", nullable = false)
     private Producto producto;
     public Detalle(){}
-
-    public Detalle(Long id, Long cantidad, Float precioVenta, Long facturaId, Long productosId) {
+    public Detalle(Long id, Long cantidad, Float precioVenta, Factura factura, Producto producto) {
         this.id = id;
         this.cantidad = cantidad;
         this.precioVenta = precioVenta;
-        this.facturaId = facturaId;
-        this.productosId = productosId;
+        this.factura = factura;
+        this.producto = producto;
     }
 
     public Long getId() {
@@ -60,20 +59,20 @@ public class Detalle {
         this.precioVenta = precioVenta;
     }
 
-    public Long getFacturaId() {
-        return facturaId;
+    public Factura getFactura() {
+        return factura;
     }
 
-    public void setFacturaId(Long facturaId) {
-        this.facturaId = facturaId;
+    public void setFactura(Factura factura) {
+        this.factura = factura;
     }
 
-    public Long getProductosId() {
-        return productosId;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setProductosId(Long productosId) {
-        this.productosId = productosId;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     @Override
@@ -82,8 +81,8 @@ public class Detalle {
                 "id=" + id +
                 ", cantidad=" + cantidad +
                 ", precioVenta=" + precioVenta +
-                ", facturaId=" + facturaId +
-                ", productosId=" + productosId +
+                ", facturaId=" + factura +
+                ", productosId=" + producto +
                 '}';
     }
 }
