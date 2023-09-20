@@ -36,6 +36,7 @@ Para clonar y utilizar este repositorio, puedes seguir estos pasos:
 
 1. Clona el repositorio a tu máquina local:
 
+git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 
 2. Desarrolla y modifica el sistema según tus necesidades.
 
